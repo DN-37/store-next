@@ -32,7 +32,7 @@ export const Header: React.FC<Props> = ({ className }) => {
               <b>520 Руб</b>
               <span className="h-full w-[1px] bg-white/30 mx-3"></span>
               <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
-                <ShoppingCart />
+                <ShoppingCart className="relative" strokeWidth={2} />
                 <b>3</b>
               </div>
               <ArrowRight
