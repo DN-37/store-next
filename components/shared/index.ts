@@ -10,3 +10,5 @@ export { RangeSlider } from "./range-slider";
 export { CheckboxFiltersGroup } from "./checkbox-filters-group";
 export { ProductImage } from "./product-image";
 export { GroupVariants } from "./group-variants";
+export { ChooseProductForm } from "./choose-product-form";
+export * from "./modals";
