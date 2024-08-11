@@ -5,9 +5,9 @@ import { Title } from "./title";
 import { Input } from "../ui";
 import { RangeSlider } from "./range-slider";
 import { CheckboxFiltersGroup } from "./checkbox-filters-group";
-import { useIngredients } from "@/shared/hooks/use-ingredients";
-import { useFilters } from "@/shared/hooks/use-filters";
-import { useQueryFilters } from "@/shared/hooks/use-query-filters";
+import { useIngredients } from "@/shared/hooks";
+import { useFilters } from "@/shared/hooks";
+import { useQueryFilters } from "@/shared/hooks";
 
 interface Props {
   className?: string;

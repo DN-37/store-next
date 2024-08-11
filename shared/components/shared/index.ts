@@ -13,4 +13,7 @@ export { GroupVariants } from "./group-variants";
 export { ChooseProductForm } from "./choose-product-form";
 export { IngredientItem } from "./ingredient-item";
 export { ProductForm } from "./product-form";
+export { CartButton } from "./cart-button";
+export { CartDrawer } from "./cart-drawer";
+export { CartDrawerItem } from "./cart-drawer-item";
 export * from "./modals";
