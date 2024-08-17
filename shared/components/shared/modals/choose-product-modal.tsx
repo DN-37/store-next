@@ -6,7 +6,6 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { ProductWithRelations } from "@/@types/prisma";
 import { ProductForm } from "../product-form";
-import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 
 interface Props {
   product: ProductWithRelations;
@@ -24,8 +23,6 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
           className
         )}
       >
-        <DialogTitle></DialogTitle>
-        <DialogDescription></DialogDescription>
         <ProductForm product={product} onSubmit={() => router.back()} />
       </DialogContent>
     </Dialog>

@@ -22,9 +22,15 @@ import { Title } from "./title";
 import { cn } from "@/shared/lib/utils";
 import { useCart } from "@/shared/hooks";
 
-export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
+interface Props {
+  loading?: boolean;
+}
+
+export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
+  children,
+  loading,
+}) => {
   const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart();
-  const [redirecting, setRedirecting] = React.useState(false);
 
   const onClickCountButton = (
     id: number,
@@ -120,8 +126,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
                   <Link href="/checkout">
                     <Button
-                      onClick={() => setRedirecting(true)}
-                      loading={redirecting}
+                      loading={loading}
                       type="submit"
                       className="w-full h-12 text-base"
                     >
