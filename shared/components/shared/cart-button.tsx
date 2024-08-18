@@ -19,7 +19,7 @@ export const CartButton: React.FC<Props> = ({ className }) => {
   ]);
 
   return (
-    <CartDrawer>
+    <CartDrawer loading={loading}>
       <Button
         loading={loading}
         className={cn("group relative", { "w-[105px]": loading }, className)}

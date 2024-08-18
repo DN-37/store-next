@@ -16,4 +16,5 @@ export { ProductForm } from "./product-form";
 export { CartButton } from "./cart-button";
 export { CartDrawer } from "./cart-drawer";
 export { CartDrawerItem } from "./cart-drawer-item";
+export { ProductsGroupList } from "./products-group-list";
 export * from "./modals";
