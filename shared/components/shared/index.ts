@@ -17,4 +17,8 @@ export { CartButton } from "./cart-button";
 export { CartDrawer } from "./cart-drawer";
 export { CartDrawerItem } from "./cart-drawer-item";
 export { ProductsGroupList } from "./products-group-list";
+export { CheckoutSidebar } from "./checkout-sidebar";
+export { CheckoutAddressForm } from "./checkout-address-form";
+export { CheckoutPersonalForm } from "./checkout-personal-form";
+export { CheckoutCart } from "./checkout-cart";
 export * from "./modals";

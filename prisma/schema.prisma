@@ -17,6 +17,7 @@ model User {
     role     UserRole  @default(USER)
 
     cart             Cart?
+    orders           Order[]
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -107,7 +108,37 @@ model CartItem {
     updatedAt DateTime @updatedAt
 }
 
+model Order {
+    id Int @id @default(autoincrement())
+
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?
+
+    token String
+
+    totalAmount Int
+    status      OrderStatus
+    paymentId   String?
+
+    items Json
+
+    fullName String
+    email    String
+    phone    String
+    address  String
+    comment  String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
 enum UserRole {
     USER
     ADMIN
+}
+
+enum OrderStatus {
+    PENDING
+    SUCCEEDED
+    CANCELLED
 }
