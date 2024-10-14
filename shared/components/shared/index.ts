@@ -22,3 +22,5 @@ export { CheckoutAddressForm } from "./checkout-address-form";
 export { CheckoutPersonalForm } from "./checkout-personal-form";
 export { CheckoutCart } from "./checkout-cart";
 export * from "./modals";
+export * from "./email-templates";
+export * from "./form";
