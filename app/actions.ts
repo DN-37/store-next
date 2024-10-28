@@ -1,12 +1,11 @@
 "use server";
 
 import { prisma } from "@/prisma/prisma-client";
-import {
-  PayOrderTemplate,
-  VerificationUserTemplate,
-} from "@/shared/components/shared/email-templates";
+import { PayOrderTemplate } from "@/shared/components/shared";
+import { VerificationUserTemplate } from "@/shared/components/shared";
 import { CheckoutFormValues } from "@/shared/constants";
 import { createPayment, sendEmail } from "@/shared/lib";
+import { getUserSession } from "@/shared/lib";
 import { OrderStatus, Prisma } from "@prisma/client";
 import { hashSync } from "bcrypt";
 import { cookies } from "next/headers";
@@ -115,6 +114,38 @@ export async function createOrder(data: CheckoutFormValues) {
     return paymentUrl;
   } catch (err) {
     console.log("[CreateOrder] Server error", err);
+  }
+}
+
+export async function updateUserInfo(body: Prisma.UserUpdateInput) {
+  try {
+    const currentUser = await getUserSession();
+
+    if (!currentUser) {
+      throw new Error("Пользователь не найден");
+    }
+
+    const findUser = await prisma.user.findFirst({
+      where: {
+        id: Number(currentUser.id),
+      },
+    });
+
+    await prisma.user.update({
+      where: {
+        id: Number(currentUser.id),
+      },
+      data: {
+        fullName: body.fullName,
+        email: body.email,
+        password: body.password
+          ? hashSync(body.password as string, 10)
+          : findUser?.password,
+      },
+    });
+  } catch (err) {
+    console.log("Error [UPDATE_USER]", err);
+    throw err;
   }
 }
 
